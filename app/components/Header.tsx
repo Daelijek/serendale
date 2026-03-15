@@ -10,6 +10,12 @@ export default function Header() {
 
     const closeMenu = () => setIsOpen(false)
 
+    const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.target === e.currentTarget) {
+            closeMenu()
+        }
+    }
+
     return (
         <header className="absolute top-0 left-0 right-0 w-full px-4 sm:px-6 md:px-12 xl:px-16 2xl:px-48 pt-6 md:pt-8 lg:pt-12 z-50">
             <div className="flex flex-row justify-between items-center">
@@ -28,8 +34,15 @@ export default function Header() {
 
             {isOpen && (
                 <>
-                    <Navigation links={navLinks} variant="mobile" onLinkClick={closeMenu} />
-                    <SocialLinks links={socialLinks} variant="mobile" />
+                    <div
+                        className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden z-40"
+                        onClick={handleBackdropClick}
+                        aria-hidden="true"
+                    />
+                    <div className="lg:hidden relative z-50">
+                        <Navigation links={navLinks} variant="mobile" onLinkClick={closeMenu} />
+                        <SocialLinks links={socialLinks} variant="mobile" />
+                    </div>
                 </>
             )}
         </header>

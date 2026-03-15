@@ -44,14 +44,14 @@ export default function Navigation({ links, variant = 'desktop', onLinkClick }: 
     return (
         <nav className={baseClasses} aria-label={variant === 'desktop' ? 'Main navigation' : 'Mobile navigation'}>
             {links.map((link) => (
-                <a
-                    key={link.href}
-                    href={link.href}
-                    className="font-nav nav-link cursor-pointer"
-                    onClick={(e) => handleClick(e, link.href, onLinkClick)}
-                >
-                    {link.label}
-                </a>
+                       <a
+                           key={link.href}
+                           href={link.href}
+                           className="font-nav nav-link cursor-pointer"
+                           onClick={(e) => handleClick(e, link.href, onLinkClick)}
+                       >
+                           {link.label}
+                       </a>
             ))}
         </nav>
     )
