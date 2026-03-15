@@ -8,10 +8,10 @@ export interface SocialLink {
 }
 
 export const socialLinks: SocialLink[] = [
-    { href: 'https://github.com/Daelijek', icon: '/icons/mdi_github.png', alt: 'Github' },
-    { href: '/', icon: '/icons/mdi_discord.png', alt: 'Discord' },
-    { href: '/', icon: '/icons/mdi_reddit.png', alt: 'Reddit' },
-    { href: '/', icon: '/icons/mdi_twitter.png', alt: 'Twitter' },
+    { href: 'https://github.com/Daelijek', icon: '/icons/mdi_github.webp', alt: 'Github' },
+    { href: '/', icon: '/icons/mdi_discord.webp', alt: 'Discord' },
+    { href: '/', icon: '/icons/mdi_reddit.webp', alt: 'Reddit' },
+    { href: '/', icon: '/icons/mdi_twitter.webp', alt: 'Twitter' },
 ]
 
 interface SocialLinksProps {
