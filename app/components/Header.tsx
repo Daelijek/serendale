@@ -1,0 +1,37 @@
+'use client'
+import Link from "next/link"
+import { useState } from "react"
+import Navigation, { navLinks } from "./Navigation"
+import SocialLinks, { socialLinks } from "./SocialLinks"
+import MobileMenuButton from "./MobileMenuButton"
+
+export default function Header() {
+    const [isOpen, setIsOpen] = useState(false)
+
+    const closeMenu = () => setIsOpen(false)
+
+    return (
+        <header className="absolute w-full px-4 sm:px-6 md:px-12 xl:px-16 2xl:px-48 pt-6 md:pt-8 lg:pt-12">
+            <div className="flex flex-row justify-between items-center">
+                <Link
+                    href="/"
+                    className="font-medium text-xl md:text-2xl font-sans hover:opacity-80 transition-opacity"
+                    aria-label="Home"
+                >
+                    SITE NAME
+                </Link>
+
+                <Navigation links={navLinks} variant="desktop" />
+                <SocialLinks links={socialLinks} variant="desktop" />
+                <MobileMenuButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+            </div>
+
+            {isOpen && (
+                <>
+                    <Navigation links={navLinks} variant="mobile" onLinkClick={closeMenu} />
+                    <SocialLinks links={socialLinks} variant="mobile" />
+                </>
+            )}
+        </header>
+    )
+}
