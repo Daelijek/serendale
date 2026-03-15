@@ -36,3 +36,47 @@ export const benefitsData: Benefit[] = [
         description: "Connect with users worldwide through our distributed network infrastructure."
     }
 ]
+
+export interface Review {
+    id: number
+    author: string
+    rating: number
+    text: string
+    date: string
+    role?: string
+}
+
+export const reviewsData: Review[] = [
+    {
+        id: 1,
+        author: "Alex Johnson",
+        rating: 5,
+        text: "Incredible performance and security. The blockchain technology is truly next-level. Highly recommend!",
+        date: "2024-01-15",
+        role: "Blockchain Developer"
+    },
+    {
+        id: 2,
+        author: "Sarah Chen",
+        rating: 5,
+        text: "The AI-powered features make this platform stand out. Fast, reliable, and secure - everything we needed.",
+        date: "2024-01-20",
+        role: "Tech Lead"
+    },
+    {
+        id: 3,
+        author: "Michael Rodriguez",
+        rating: 5,
+        text: "Best blockchain solution we've used. The scalability is impressive and the support team is excellent.",
+        date: "2024-02-01",
+        role: "CTO"
+    },
+    {
+        id: 4,
+        author: "Emily Watson",
+        rating: 5,
+        text: "Outstanding platform with cutting-edge technology. The Proof of Stake algorithm works flawlessly.",
+        date: "2024-02-10",
+        role: "Product Manager"
+    }
+]

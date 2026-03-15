@@ -1,4 +1,4 @@
-import Link from "next/link"
+'use client'
 
 export interface NavLink {
     href: string
@@ -6,17 +6,34 @@ export interface NavLink {
 }
 
 export const navLinks: NavLink[] = [
-    { href: '/smart-contracts', label: 'Smart Contracts' },
-    { href: '/services', label: 'Services' },
-    { href: '/solutions', label: 'Solutions' },
-    { href: '/roadmap', label: 'Roadmap' },
-    { href: '/whitepaper', label: 'Whitepaper' },
+    { href: '#hero', label: 'Home' },
+    { href: '#benefits', label: 'Benefits' },
+    { href: '#reviews', label: 'Reviews' },
+    { href: '#contact', label: 'Contact' },
 ]
 
 interface NavigationProps {
     links: NavLink[]
     variant?: 'desktop' | 'mobile'
     onLinkClick?: () => void
+}
+
+const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, onLinkClick?: () => void) => {
+    if (href.startsWith('#')) {
+        e.preventDefault()
+        const element = document.querySelector(href)
+        if (element) {
+            const headerOffset = 80
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        }
+    }
+    onLinkClick?.()
 }
 
 export default function Navigation({ links, variant = 'desktop', onLinkClick }: NavigationProps) {
@@ -27,14 +44,14 @@ export default function Navigation({ links, variant = 'desktop', onLinkClick }: 
     return (
         <nav className={baseClasses} aria-label={variant === 'desktop' ? 'Main navigation' : 'Mobile navigation'}>
             {links.map((link) => (
-                <Link
+                <a
                     key={link.href}
                     href={link.href}
-                    className="font-nav nav-link"
-                    onClick={onLinkClick}
+                    className="font-nav nav-link cursor-pointer"
+                    onClick={(e) => handleClick(e, link.href, onLinkClick)}
                 >
                     {link.label}
-                </Link>
+                </a>
             ))}
         </nav>
     )
