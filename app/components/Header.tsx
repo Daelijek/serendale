@@ -11,7 +11,7 @@ export default function Header() {
     const closeMenu = () => setIsOpen(false)
 
     return (
-        <header className="absolute w-full px-4 sm:px-6 md:px-12 xl:px-16 2xl:px-48 pt-6 md:pt-8 lg:pt-12">
+        <header className="absolute top-0 left-0 right-0 w-full px-4 sm:px-6 md:px-12 xl:px-16 2xl:px-48 pt-6 md:pt-8 lg:pt-12 z-50">
             <div className="flex flex-row justify-between items-center">
                 <Link
                     href="/"

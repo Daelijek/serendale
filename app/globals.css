@@ -154,3 +154,12 @@ body {
     transform: translateX(50%);
   }
 }
+
+/* Benefits hover effect */
+.group:hover .group-hover\:text-gradient {
+  background: linear-gradient(90deg, rgba(255, 59, 255, 1) 0%, rgba(236, 191, 191, 1) 25%, rgba(92, 36, 255, 1) 75%, rgba(217, 79, 213, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
