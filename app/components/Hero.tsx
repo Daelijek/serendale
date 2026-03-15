@@ -19,6 +19,7 @@ export default function Hero() {
                         priority
                         quality={90}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, (max-width: 1440px) 90vw, 1605px"
+                        draggable={false}
                     />
                 </div>
             </div>

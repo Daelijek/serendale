@@ -99,6 +99,7 @@ export default function Footer() {
                                             height={20}
                                             className="object-contain"
                                             loading="lazy"
+                                            draggable={false}
                                         />
                                     </a>
                                 ))}

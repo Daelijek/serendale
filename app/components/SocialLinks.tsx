@@ -41,6 +41,7 @@ export default function SocialLinks({ links, variant = 'desktop' }: SocialLinksP
                         width={20}
                         height={20}
                         className="object-contain"
+                        draggable={false}
                     />
                 </Link>
             ))}
